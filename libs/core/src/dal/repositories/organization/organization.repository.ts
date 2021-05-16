@@ -1,4 +1,4 @@
-import { IMemberInvite, MemberRoleEnum, MemberStatusEnum } from '@nest-starter/shared';
+import { IMemberInvite, MemberRoleEnum, MemberStatusEnum } from '@tykeapp/shared';
 import { MemberEntity, OrganizationEntity } from './organization.entity';
 import { BaseRepository } from '../base-repository';
 import { Organization } from './organization.schema';
@@ -16,7 +16,7 @@ export class OrganizationRepository extends BaseRepository<OrganizationEntity> {
   }
 
   async removeMemberById(organizationId: string, memberId: string) {
-    return await Organization.update(
+    return await Organization.updateOne(
       {
         _id: organizationId,
       },
@@ -86,9 +86,7 @@ export class OrganizationRepository extends BaseRepository<OrganizationEntity> {
 
   async findInviteeByEmail(organizationId: string, email: string): Promise<MemberEntity> {
     const foundOrganization = await Organization.findOne(
-      {
-        _id: organizationId,
-      },
+      organizationId,
       {
         _id: 1,
         members: {

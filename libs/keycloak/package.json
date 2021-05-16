@@ -1,0 +1,14 @@
+{
+  "name": "@tykheapp/keycloak",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cenk Cetinkaya",
+  "license": "MIT",
+  "dependencies": {
+    "@tykeapp/nestjs-common": "^0.1.0"
+  }
+}

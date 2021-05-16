@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from '@nest-starter/core';
+import { UserRepository } from '@tykeapp/core';
 import * as bcrypt from 'bcrypt';
 import { AuthService } from '../../services/auth.service';
 import { UserRegisterCommand } from './user-register.command';

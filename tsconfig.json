@@ -4,6 +4,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
+      "@tykheapp/*": ["./app/*", "./libs/*"],
     }
   },
   "types": [

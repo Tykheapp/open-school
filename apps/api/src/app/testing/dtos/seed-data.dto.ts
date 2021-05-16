@@ -1,4 +1,4 @@
-import { UserEntity } from '@nest-starter/core';
+import { UserEntity } from '@tykeapp/core';
 
 export class SeedDataBodyDto {}
 

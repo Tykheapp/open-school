@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserEntity, UserRepository } from '@nest-starter/core';
+import { UserEntity, UserRepository } from '@tykeapp/core';
 import { CreateUserCommand } from './create-user.dto';
 
 @Injectable()

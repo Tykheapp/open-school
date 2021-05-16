@@ -1,7 +1,7 @@
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
-import { IJwtPayload } from '@nest-starter/shared';
-import { UserRepository } from '@nest-starter/core';
+import { IJwtPayload } from '@tykeapp/shared';
+import { UserRepository } from '@tykeapp/core';
 import { GqlAuthGuard } from '../auth/framework/gql-auth.guard';
 import { Member } from './member.graph';
 import { UserSession } from '../shared/framework/user.decorator';

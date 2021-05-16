@@ -1,16 +1,15 @@
-/* eslint-disable no-sequences */
-import { CrudRequest, CreateManyDto, CrudService } from '@nestjsx/crud';
-import { Model } from 'mongoose';
+import { CrudRequest, CreateManyDto, CrudService, GetManyDefaultResponse } from '@nestjsx/crud';
+import { DocumentDefinition, Model, QueryOptions } from 'mongoose';
 
-export class MongooseCrudService<T> extends CrudService<T> {
+export class MongooseCrudService<T extends DocumentDefinition<never>> extends CrudService<T> {
   constructor(public model: Model<never>) {
     super();
   }
 
   buildQuery(req: CrudRequest) {
     const { limit = 10, page = 1, filter = [], fields = [], sort = [], join = [], paramsFilter = [] } = req.parsed;
-
     let { offset: skip = 0 } = req.parsed;
+
     if (page > 1) {
       skip = (page - 1) * limit;
     }
@@ -19,7 +18,7 @@ export class MongooseCrudService<T> extends CrudService<T> {
       page,
       skip,
       limit,
-      // eslint-disable-next-line no-return-assign
+      // eslint-disable-next-line
       sort: sort.reduce((acc, v) => ((acc[v.field] = v.order === 'ASC' ? 1 : -1), acc), {}),
       populate: join.map((v) => v.field),
       select: fields.join(' '),
@@ -65,12 +64,14 @@ export class MongooseCrudService<T> extends CrudService<T> {
     return { options, where, id: idParam ? idParam.value : null };
   }
 
-  async getMany(req: CrudRequest) {
+  async getMany(req: CrudRequest): Promise<never[] | GetManyDefaultResponse<T>> {
     const { options, where } = this.buildQuery(req);
     const queryBuilder = this.model
       .find()
       .setOptions({
         ...options,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        populate: options.populate as any,
       })
       .where({
         ...where,
@@ -99,6 +100,8 @@ export class MongooseCrudService<T> extends CrudService<T> {
       .findById(id)
       .setOptions({
         ...options,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        populate: options.populate as any,
       })
       .where({
         ...where,

@@ -1,8 +1,8 @@
-import { AuthProviderEnum } from '@nest-starter/shared';
+import { AuthProviderEnum } from '@tykeapp/shared';
 import { CommandHelper } from '../../../shared/commands/command.helper';
 
 export class CreateUserCommand {
-  static create(data: CreateUserCommand) {
+  static create(data: Record<string, unknown>) {
     return CommandHelper.create(CreateUserCommand, data);
   }
 

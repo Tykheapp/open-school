@@ -13,10 +13,12 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { OrganizationRepository, UserRepository } from '@nest-starter/core';
+import { OrganizationRepository, UserRepository } from '@tykeapp/core';
 import { JwtService } from '@nestjs/jwt';
 import { AuthGuard } from '@nestjs/passport';
-import { IJwtPayload } from '@nest-starter/shared';
+import { IJwtPayload } from '@tykeapp/shared';
+import { IRequest } from '@tykeapp/nestjs-common';
+import { Response } from 'express';
 import { AuthService } from './services/auth.service';
 import { UserRegistrationBodyDto } from './dtos/user-registration.dto';
 import { UserRegister } from './usecases/register/user-register.usecase';
@@ -39,7 +41,7 @@ export class AuthController {
   ) {}
 
   @Get('/github')
-  githubTestAuth() {
+  githubTestAuth(): { success: true } {
     return {
       success: true,
     };
@@ -47,7 +49,7 @@ export class AuthController {
 
   @Get('/github/callback')
   @UseGuards(AuthGuard('github'))
-  async githubCallback(@Req() request, @Res() response) {
+  async githubCallback(@Req() request: IRequest, @Res() response: Response) {
     if (!request.user || !request.user.token) {
       return response.redirect(`${process.env.CLIENT_SUCCESS_AUTH_REDIRECT}?error=AuthenticationError`);
     }
@@ -57,7 +59,9 @@ export class AuthController {
       url += '&newUser=true';
     }
 
-    return response.redirect(url);
+    response.redirect(url);
+
+    return null;
   }
 
   @Get('/refresh')

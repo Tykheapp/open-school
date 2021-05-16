@@ -1,7 +1,7 @@
-import { UserSession } from '@nest-starter/core';
+import { UserSession } from '@tykeapp/core';
 import * as jwt from 'jsonwebtoken';
 import { expect } from 'chai';
-import { IJwtPayload } from '@nest-starter/shared/src';
+import { IJwtPayload } from '@tykeapp/shared/src';
 
 describe('User login - /auth/login (POST)', async () => {
   let session: UserSession;
@@ -31,7 +31,7 @@ describe('User login - /auth/login (POST)', async () => {
       password: userCredentials.password,
     });
 
-    const jwtContent = ((await jwt.decode(body.data)) as unknown) as IJwtPayload;
+    const jwtContent = (await jwt.decode(body.data)) as unknown as IJwtPayload;
     expect(jwtContent.firstName).to.equal('test');
     expect(jwtContent.lastName).to.equal('user');
     expect(jwtContent.email).to.equal('testytest22@gmail.com');

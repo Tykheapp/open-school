@@ -1,4 +1,4 @@
-import { UserSession } from '@nest-starter/core';
+import { UserSession } from '@tykeapp/core';
 import { expect } from 'chai';
 
 describe('Health-check', () => {

@@ -1,4 +1,4 @@
-import { DalService, testServer } from '@nest-starter/core';
+import { DalService, testServer } from '@tykeapp/core';
 import * as sinon from 'sinon';
 import { bootstrap } from '../src/bootstrap';
 

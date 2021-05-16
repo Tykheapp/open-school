@@ -1,5 +1,5 @@
 import { Module, OnModuleInit } from '@nestjs/common';
-import { CronService, QueueService } from '@nest-starter/core';
+import { CronService, QueueService } from '@tykeapp/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { SharedModule } from './app/shared/shared.module';
 import { UserModule } from './app/user/user.module';
@@ -39,7 +39,7 @@ import { OrganizationModule } from './app/organization/organization.module';
 export class AppModule implements OnModuleInit {
   constructor(private queueService: QueueService, private cronService: CronService) {}
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     await this.cronService.initialize();
     this.cronService.define('demo_cron_job', async (job, done) => {
       done();

@@ -45,7 +45,7 @@ Each package can be referenced within other packages/app files by importing from
 
 ```tsx
 import * as React from 'react';
-import { Button } from '@nest-starter/shared';
+import { Button } from '@tykeapp/shared';
 
 class App extends React.Component<any> {
   render() {
@@ -116,8 +116,8 @@ To add a new npm module(s) to just one package
 lerna add <module> --scope=<package-name> <other yarn-flags>
 
 # Examples (if your project name was `nest-starter`)
-lerna add classnames --scope=@nest-starter/api
-lerna add @types/classnames @types/jest --scope=@nest-starter/api --dev
+lerna add classnames --scope=@tykeapp/api
+lerna add @types/classnames @types/jest --scope=@tykeapp/api --dev
 ```
 
 #### Uninstalling a module from a package

@@ -1,5 +1,5 @@
 import { Injectable, Scope } from '@nestjs/common';
-import { OrganizationRepository } from '@nest-starter/core';
+import { OrganizationRepository } from '@tykeapp/core';
 import { GetOrganizationCommand } from './get-organization.command';
 
 @Injectable({

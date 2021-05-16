@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException, Scope } from '@nestjs/common';
-import { OrganizationRepository } from '@nest-starter/core';
+import { OrganizationRepository } from '@tykeapp/core';
 import { GetMembersCommand } from './get-members.command';
 
 @Injectable({

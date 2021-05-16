@@ -1,4 +1,4 @@
-import { AuthProviderEnum } from '@nest-starter/shared';
+import { AuthProviderEnum } from '@tykeapp/shared';
 import { Exclude } from 'class-transformer';
 
 export interface IUserToken {

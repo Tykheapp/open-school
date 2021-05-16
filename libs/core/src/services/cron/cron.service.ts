@@ -1,5 +1,5 @@
 import { Job } from 'agenda';
-import * as Agenda from 'agenda';
+import Agenda from 'agenda';
 
 export class CronService {
   private agenda = new Agenda({
@@ -23,6 +23,6 @@ export class CronService {
   }
 
   async processNow(name: string) {
-    await this.agenda.now(name);
+    await this.agenda.now(name, {});
   }
 }

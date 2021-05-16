@@ -1,7 +1,7 @@
-import { MemberRoleEnum } from '@nest-starter/shared';
+import { MemberRoleEnum } from '@tykeapp/shared';
+import { OrganizationCommand } from 'apps/api/src/app/shared/commands/organization.command';
 import { ArrayNotEmpty } from 'class-validator';
 import { CommandHelper } from '../../../../shared/commands/command.helper';
-import { OrganizationCommand } from '../../../../shared/commands/organization.command';
 
 export class AddMemberCommand extends OrganizationCommand {
   static create(data: AddMemberCommand) {

@@ -1,11 +1,12 @@
-import { plainToClass } from 'class-transformer';
+import { plainToClass, ClassConstructor } from 'class-transformer';
 import { validateSync } from 'class-validator';
-import { ClassType } from 'class-transformer/ClassTransformer';
+
 import { BadRequestException, flatten } from '@nestjs/common';
 
 export class CommandHelper {
-  static create<T>(command: ClassType<T>, data: object): T {
-    const convertedObject = plainToClass<T, object>(command, {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  static create<T extends object>(command: ClassConstructor<T>, data: Record<string, unknown>): T {
+    const convertedObject = plainToClass<T, Record<string, unknown>>(command, {
       ...data,
     });
 

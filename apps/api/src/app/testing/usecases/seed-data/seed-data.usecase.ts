@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { UserSession } from '@nest-starter/core';
+import { UserEntity, UserSession } from '@tykeapp/core';
 import { SeedDataCommand } from './seed-data.command';
 
 @Injectable()
 export class SeedData {
-  async execute(command: SeedDataCommand) {
+  async execute(command: SeedDataCommand): Promise<{ token: string; user: UserEntity }> {
     const userSession = new UserSession();
     userSession.testServer = null;
     await userSession.initialize();

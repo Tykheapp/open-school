@@ -1,0 +1,14 @@
+{
+  "name": "@tykheapp/job-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "agenda-rest --dburi ${JOB_MANAGER_DB_URL} --port 80"
+  },
+  "author": "Cenk Cetinkaya",
+  "license": "MIT",
+  "dependencies": {
+    "agenda-rest": "^1.3.1"
+  }
+}

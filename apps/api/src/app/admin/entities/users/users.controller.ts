@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
-import { UserEntity } from '@nest-starter/core';
+import { UserEntity } from '@tykeapp/core';
 import { UsersService } from './users.service';
 
 @Crud({

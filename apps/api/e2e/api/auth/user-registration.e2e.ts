@@ -1,7 +1,7 @@
-import { UserSession } from '@nest-starter/core';
+import { UserSession } from '@tykeapp/core';
 import * as jwt from 'jsonwebtoken';
 import { expect } from 'chai';
-import { IJwtPayload } from '@nest-starter/shared/src';
+import { IJwtPayload } from '@tykeapp/shared/src';
 
 describe('User registration - /auth/register (POST)', async () => {
   let session: UserSession;
@@ -33,7 +33,7 @@ describe('User registration - /auth/register (POST)', async () => {
 
     expect(body.data).to.be.ok;
 
-    const jwtContent = ((await jwt.decode(body.data)) as unknown) as IJwtPayload;
+    const jwtContent = (await jwt.decode(body.data)) as IJwtPayload;
 
     expect(jwtContent.firstName).to.equal('test');
     expect(jwtContent.lastName).to.equal('user');

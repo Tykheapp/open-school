@@ -7,8 +7,8 @@ import {
   QueueService,
   MemberEntity,
   OrganizationRepository,
-} from '@nest-starter/core';
-import { AuthProviderEnum, IJwtPayload } from '@nest-starter/shared';
+} from '@tykeapp/core';
+import { AuthProviderEnum, IJwtPayload } from '@tykeapp/shared';
 
 import { CreateUserCommand } from '../../user/usecases/create-user/create-user.dto';
 import { CreateUser } from '../../user/usecases/create-user/create-user.usecase';

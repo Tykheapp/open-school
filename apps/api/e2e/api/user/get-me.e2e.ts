@@ -1,6 +1,6 @@
-import { UserSession } from '@nest-starter/core';
+import { UserSession } from '@tykeapp/core';
 import { gql } from 'apollo-boost';
-import { IUserEntity } from '@nest-starter/shared';
+import { IUserEntity } from '@tykeapp/shared';
 import { expect } from 'chai';
 
 describe('User get my profile', async () => {

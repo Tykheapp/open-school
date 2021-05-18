@@ -1,0 +1,35 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  postgres:
+    extends:
+      file: postgres.yml
+      service: postgres
+  keycloak:
+    extends:
+      file: keycloak.yml
+      service: keycloak
+    depends_on:
+      - postgres
+  redis-sentinel:
+    extends:
+      file: redis.yml
+      service: redis-sentinel
+  mongo:
+    extends:
+      file: mongo.yml
+      service: mongo
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+volumes:
+  postgres_data:
+      driver: local
